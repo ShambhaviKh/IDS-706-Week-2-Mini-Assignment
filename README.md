@@ -55,16 +55,18 @@ from sklearn.metrics import mean_squared_error, r2_score
 ---
 ## Data Cleaning
 Steps performed:
-* Drop duplicates to remove repeated rows.
-* Rename columns for clarity:
+* Drop duplicates to remove repeated rows and checked for null values
+* Renamed columns for clarity:
 title → product_name
 rating → product_ratings
 reviews → total_reviews
 purchased_last_month → last_month_picks
+
 * Convert numeric columns to proper numeric types and remove symbols ($).
 Fill missing values:
 Numeric columns: 0
 Categorical columns: 'Unknown'
+
 * Convert boolean target is_best_seller to 0/1.
 
 ## Feature Engineering
@@ -80,6 +82,7 @@ Categorical columns: 'Unknown'
 * Top 10 best-selling products (by last month picks)
 
 ## Machine Learning Models
+
 * Linear Regression
 Objective: Predict product_ratings using numeric features:
 total_reviews, discounted_price, original_price, discount_percentage, is_sponsored
@@ -89,6 +92,7 @@ R² Score
 Visualizations:
 Actual vs predicted ratings
 Residual plot
+
 * Decision Tree Regressor
 Objective: Predict total_reviews using numeric features:
 product_ratings, discounted_price, original_price, discount_percentage, is_sponsored
@@ -99,9 +103,13 @@ Visualizations:
 Actual vs predicted reviews
 Residual plot
 ## Visualizations
-Distribution of Product Ratings: Histogram with KDE.
-Ratings vs Price Ranges: Boxplot showing ratings across different price bins.
-Category Proportion: Pie chart showing product category distribution.
+
+*Distribution of Product Ratings: Histogram with KDE. 
+
+*Ratings vs Price Ranges: Boxplot showing ratings across different price bins.
+
+*Category Proportion: Pie chart showing product category distribution.
+
 ---
 
 ## Usage
