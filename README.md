@@ -6,11 +6,17 @@ This project contains a simple data analysis workflow
 The dataset used provides detailed information on 42,000+ Amazon electronics products, including sales, ratings, pricing trends, and sub-category distribution. The dataset opens up a wide range of practical use cases for Data Science, Machine Learning, and Business Intelligence, such as:
 
 ✔ Price Analysis & Trends – Study pricing behavior, discounts, and seasonal sales
+
 ✔ Customer Behavior Analysis – Analyze ratings, reviews, and sales patterns
+
 ✔ Recommendation Systems – Build personalized product recommendation engines
+
 ✔ Market Basket Analysis – Identify related products frequently bought together
+
 ✔ Predictive Modeling – Forecast sales, demand, and discount impact
+
 ✔ NLP Projects – Use product titles for text classification and category prediction
+
 ✔ Data Cleaning Practice – Use the raw file for real-world preprocessing exercises
 
 This project is a part of Data Engineering Systems course.
