@@ -12,10 +12,14 @@ from sklearn.metrics import accuracy_score, classification_report, mean_squared_
 df = pd.read_csv('/Users/shambhavikhanna/Downloads/amazon_products_sales_data.csv')
 
 #Inspect the Dataset
-print("First 5 rows:\n", df.head())
+
+#Initial look
+df.head()
 print("\nData Info:\n")
 df.info()
 print("\nData Description:\n", df.describe())
+
+#checking for missing values and duplicates
 print("\nMissing values:\n", df.isnull().sum())
 print("\nDuplicates:", df.duplicated().sum())
 
