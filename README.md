@@ -19,10 +19,8 @@ The dataset used provides detailed information on 42,000+ Amazon electronics pro
 
 ✔ Data Cleaning Practice – Use the raw file for real-world preprocessing exercises
 
-=======
 # Amazon Products Sales Data Analysis & Machine Learning
 
->>>>>>> 09050b6 (Fix README filename case)
 This project is a part of Data Engineering Systems course.
 It demonstrates data cleaning, exploration, analysis, and machine learning modeling on an Amazon products sales dataset. It includes data preprocessing, filtering, grouping, regression models, and visualizations.
 
@@ -36,8 +34,8 @@ It demonstrates data cleaning, exploration, analysis, and machine learning model
 * [Data Exploration](#data-exploration)
 * [Machine Learning Models](#machine-learning-models)
 
-  * [Linear Regression](#linear-regression)
-  * [Decision Tree Regressor](#decision-tree-regressor)
+* [Linear Regression](#linear-regression)
+* [Decision Tree Regressor](#decision-tree-regressor)
 * [Visualizations](#visualizations)
 
 ---
@@ -75,35 +73,21 @@ from sklearn.metrics import mean_squared_error, r2_score
 ---
 ## Data Cleaning
 Steps performed:
-<<<<<<< HEAD
-* Drop duplicates to remove repeated rows and checked for null values
-* Renamed columns for clarity:
-=======
 * Drop duplicates to remove repeated rows.
 * Rename columns for clarity:
->>>>>>> 09050b6 (Fix README filename case)
 title → product_name
 rating → product_ratings
 reviews → total_reviews
 purchased_last_month → last_month_picks
-<<<<<<< HEAD
-
-=======
->>>>>>> 09050b6 (Fix README filename case)
 * Convert numeric columns to proper numeric types and remove symbols ($).
 Fill missing values:
 Numeric columns: 0
 Categorical columns: 'Unknown'
-<<<<<<< HEAD
 
 * Convert boolean target is_best_seller to 0/1.
 
 * Check for invalid data like negative values in price, checking for outliers in ratings
 
-=======
-* Convert boolean target is_best_seller to 0/1.
-
->>>>>>> 09050b6 (Fix README filename case)
 ## Feature Engineering
 * Correlation heatmap to visualize relationships between numeric features.
 * Discount amount: original_price - discounted_price.
@@ -118,7 +102,6 @@ Categorical columns: 'Unknown'
 
 ## Machine Learning Models
 
-=======
 * Linear Regression
 Objective: Predict product_ratings using numeric features:
 total_reviews, discounted_price, original_price, discount_percentage, is_sponsored
@@ -128,9 +111,7 @@ R² Score
 Visualizations:
 Actual vs predicted ratings
 Residual plot
-<<<<<<< HEAD
 
-=======
 * Decision Tree Regressor
 Objective: Predict total_reviews using numeric features:
 product_ratings, discounted_price, original_price, discount_percentage, is_sponsored
@@ -140,21 +121,14 @@ R² Score
 Visualizations:
 Actual vs predicted reviews
 Residual plot
+
 ## Visualizations
-<<<<<<< HEAD
 
 *Distribution of Product Ratings: Histogram with KDE. 
 
 *Ratings vs Price Ranges: Boxplot showing ratings across different price bins.
 
 *Category Proportion: Pie chart showing product category distribution.
-
-=======
-Distribution of Product Ratings: Histogram with KDE.
-Ratings vs Price Ranges: Boxplot showing ratings across different price bins.
-Category Proportion: Pie chart showing product category distribution.
->>>>>>> 09050b6 (Fix README filename case)
----
 
 ## Usage
 
@@ -167,8 +141,5 @@ Category Proportion: Pie chart showing product category distribution.
 ---
 
 This project provides a foundation for **data analysis**, **feature engineering**, and **predictive modeling** on e-commerce datasets.
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 09050b6 (Fix README filename case)
