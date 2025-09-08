@@ -85,6 +85,8 @@ Categorical columns: 'Unknown'
 
 * Convert boolean target is_best_seller to 0/1.
 
+* Check for invalid data like negative values in price, checking for outliers in ratings
+
 ## Feature Engineering
 * Correlation heatmap to visualize relationships between numeric features.
 * Discount amount: original_price - discounted_price.
