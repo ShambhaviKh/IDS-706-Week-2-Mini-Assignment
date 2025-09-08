@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # IDS-706-Week-2-Mini-Assignment
 This project contains a simple data analysis workflow
 
@@ -118,10 +117,8 @@ Categorical columns: 'Unknown'
 * Top 10 best-selling products (by last month picks)
 
 ## Machine Learning Models
-<<<<<<< HEAD
 
 =======
->>>>>>> 09050b6 (Fix README filename case)
 * Linear Regression
 Objective: Predict product_ratings using numeric features:
 total_reviews, discounted_price, original_price, discount_percentage, is_sponsored
@@ -134,7 +131,6 @@ Residual plot
 <<<<<<< HEAD
 
 =======
->>>>>>> 09050b6 (Fix README filename case)
 * Decision Tree Regressor
 Objective: Predict total_reviews using numeric features:
 product_ratings, discounted_price, original_price, discount_percentage, is_sponsored
