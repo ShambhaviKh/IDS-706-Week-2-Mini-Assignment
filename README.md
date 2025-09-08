@@ -42,6 +42,8 @@ It demonstrates data cleaning, exploration, analysis, and machine learning model
 
 ## Dataset
 
+Refer to the Dataset here- https://drive.google.com/file/d/1hCDC1B0nnxkihqkElL9SuQmjgihlc2hQ/view?usp=sharing
+
 The dataset contains information about Amazon products, including:
 
 * `title` – Name of the product
