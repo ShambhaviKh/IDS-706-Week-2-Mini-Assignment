@@ -46,6 +46,17 @@ df[numeric_cols] = df[numeric_cols].fillna(0)
 categorical_cols = df.select_dtypes(include='object').columns
 df[categorical_cols] = df[categorical_cols].fillna('Unknown')
 
+#Checking for invalid data
+
+#Ratings outside this range are likely invalid entries
+df = df[(df['product_ratings'] >= 0) & (df['product_ratings'] <= 5)]
+
+#Remove rows where discounted_price is negative
+df = df[df['discounted_price'] >= 0]
+
+# Remove rows where original_price is negative
+df = df[df['original_price'] >= 0]
+
 #Converting target for ML classification
 df['is_best_seller'] = df['is_best_seller'].map({True:1, False:0}).fillna(0)
 
@@ -58,7 +69,7 @@ plt.figure(figsize=(10,6))
 sns.heatmap(df[numeric_cols].corr(), annot=True, cmap="coolwarm", fmt=".2f")
 plt.title("Correlation Heatmap of Numeric Features")
 plt.show()                   
-#Discount amount
+#Discount amount(how much discount given)
 df['discount_amount'] = df['original_price'] - df['discounted_price']
 print("\nTop 5 discount amounts:\n", df[['product_name','discount_amount']].sort_values(by='discount_amount', ascending=False).head())
 #Reviews per rating (to see if more reviews correlate with higher ratings)
@@ -67,7 +78,7 @@ print("\nTop 5 reviews per rating:\n", df[['product_name','reviews_per_rating']]
 
                   #APPYLING FILTERS & GROUPINGS
 
-#High-rated products (>4.5) with more than 100 reviews
+#High-rated products- (>4.5) with more than 100 reviews
 high_rated = df[(df["product_ratings"] >= 4.5) & (df["total_reviews"] > 100)]
 print("\nHigh-rated products:\n", high_rated[['product_name','product_ratings','total_reviews']].head())
 
@@ -171,7 +182,7 @@ plt.show()
 
 #Distribution of product ratings (How many products have high ratings?)
 plt.figure(figsize=(8,5))
-sns.histplot(df['product_ratings'], bins=20, kde=True)
+sns.histplot(df['product_ratings'], bins=20, kde=True, color="red")
 plt.title("Distribution of Product Ratings")
 plt.xlabel("Rating")
 plt.ylabel("Number of Products")
@@ -195,3 +206,4 @@ plt.figure(figsize=(8,8))
 plt.pie(category_counts, labels=category_counts.index, autopct='%1.1f%%', startangle=140, colors=sns.color_palette('pastel'))
 plt.title('Category Proportion')
 plt.show()
+
