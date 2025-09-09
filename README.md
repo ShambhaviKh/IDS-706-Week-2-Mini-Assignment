@@ -19,7 +19,7 @@ The dataset used provides detailed information on 42,000+ Amazon electronics pro
 
 ✔ Data Cleaning Practice – Use the raw file for real-world preprocessing exercises
 
-# Amazon Products Sales Data Analysis & Machine Learning
+## About the project
 
 This project is a part of Data Engineering Systems course.
 It demonstrates data cleaning, exploration, analysis, and machine learning modeling on an Amazon products sales dataset. It includes data preprocessing, filtering, grouping, regression models, and visualizations.
