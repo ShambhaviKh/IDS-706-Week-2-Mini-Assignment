@@ -57,6 +57,30 @@ The dataset contains information about Amazon products, including:
 * `is_sponsored` – Indicates if the product is sponsored
 * `product_category` – Category of the product
 
+## Key Questions Answered by the Dataset
+
+### Business & Product Insights
+1. Which product categories offer the highest average discount?  
+2. Do expensive products tend to have better ratings than cheaper ones?  
+3. Which categories have the highest-rated products on average?  
+4. Which categories have the most best sellers?  
+5. What proportion of products belong to each product category?  
+
+### Customer Behavior Insights
+6. Do products with more reviews generally have higher ratings?  
+7. Which products are top sellers (based on last month’s purchases)?  
+8. What is the distribution of product ratings across all products?  
+9. Are high-rated products (>4.5) also the ones with lots of reviews?  
+10. How does the number of reviews per rating vary across products?  
+
+### Pricing & Discounts
+11. How much discount (in absolute amount) is typically given?  
+12. Which products received the highest discount amounts?  
+13. How do discount percentages correlate with sales (last month’s picks)?  
+
+### Machine Learning Predictions
+14. Can product ratings be predicted from price, reviews, and sponsorship status?  
+15. Can the number of reviews be predicted using ratings and price details?  
 ---
 
 ## Libraries Used
