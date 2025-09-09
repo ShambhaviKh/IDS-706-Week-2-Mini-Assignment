@@ -24,6 +24,8 @@ The dataset used provides detailed information on 42,000+ Amazon electronics pro
 This project is a part of Data Engineering Systems course.
 It demonstrates data cleaning, exploration, analysis, and machine learning modeling on an Amazon products sales dataset. It includes data preprocessing, filtering, grouping, regression models, and visualizations.
 
+Though the project has used pandas but it also contains a file with comparison between the functionalities Pandas and Polars for the tasks done in the project. 
+
 ---
 
 ## Table of Contents
