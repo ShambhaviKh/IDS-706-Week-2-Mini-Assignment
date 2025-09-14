@@ -1,0 +1,4 @@
+title,rating,reviews,purchased_last_month,is_best_seller,discounted_price,original_price,discount_percentage,is_sponsored
+A,5,10,5,True,100,150,33,1
+B,4,20,0,False,200,250,20,0
+B,4,20,0,False,200,250,20,0
