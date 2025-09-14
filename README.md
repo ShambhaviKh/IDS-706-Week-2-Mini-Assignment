@@ -158,6 +158,21 @@ Residual plot
 
 *Category Proportion: Pie chart showing product category distribution.
 
+## Test Cases
+
+The project includes unit and system tests to ensure reproducibility:
+1. Data Loading & Cleaning – Checks duplicates removal and column renaming
+2. Feature Engineering – Validates discount and reviews per rating calculations
+3. Filtering – Confirms high-rated products are filtered correctly
+4. Machine Learning – Ensures Linear Regression and Decision Tree predictions run and metrics are valid
+
+Run tests using:
+python Tests/Test_cases.py
+Or using pytest:
+pytest Tests/Test_cases.py -s
+All tests print "Test ... successful" messages and end with:
+ALL TESTS PASSED SUCCESSFULLY!
+
 ## Usage
 
 1. Load the dataset using `pd.read_csv()`.
