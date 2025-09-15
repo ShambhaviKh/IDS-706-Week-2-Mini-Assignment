@@ -181,10 +181,40 @@ docker:
 ## Test Cases
 
 The project includes unit and system tests to ensure reproducibility:
-1. Data Loading & Cleaning – Checks duplicates removal and column renaming
-2. Feature Engineering – Validates discount and reviews per rating calculations
-3. Filtering – Confirms high-rated products are filtered correctly
-4. Machine Learning – Ensures Linear Regression and Decision Tree predictions run and metrics are valid
+The `Test_cases.py` file contains **unit tests and integration tests** for the data analysis pipeline. Each test ensures that a specific function or part of the pipeline works correctly.
+
+---
+
+## 1. Unit Tests on Sample CSV
+
+| Test Case | Function Tested | Description |
+|-----------|----------------|-------------|
+| `test_load_data` | `pd.read_csv` | Verifies that data is loaded correctly and contains expected columns. |
+| `test_inspect_data` | `inspect_data` | Ensures the data inspection function runs without errors. |
+| `test_clean_data` | `clean_data` | Checks data cleaning: duplicates removed, numeric conversion, NaN handling, and boolean encoding. |
+| `test_feature_engineering` | `feature_engineering` | Verifies creation of new features like `discount_amount` and `reviews_per_rating`. |
+| `test_filtering_grouping` | `filtering_grouping` | Tests grouping and aggregation operations. |
+| `test_linear_regression_model` | `linear_regression_model` | Ensures the linear regression model function runs and returns a model object. |
+| `test_decision_tree_model` | `decision_tree_model` | Ensures the decision tree model function runs and returns a model object. |
+| `test_plot_distributions` | `plot_distributions` | Checks that plots can be generated for numeric columns without errors (plot display suppressed during unit testing). |
+
+---
+
+## 2. Integration Test on Real Dataset
+
+| Test Case | Function Tested | Description |
+|-----------|----------------|-------------|
+| `test_real_data_integration` | `load_data`, `clean_data`, `feature_engineering`, `plot_distributions` | Runs the full pipeline on the actual dataset to ensure all functions work together. Plots are displayed for verification. |
+
+---
+
+## Notes
+
+- **Sample CSV** is used for consistent unit testing to isolate function behavior.  
+- **Real dataset tests** validate the pipeline on actual data and can be used for integration testing.  
+- `plot_distributions` uses a `show_plot` flag to control whether plots are displayed:  
+  - `False` during unit tests (sample CSV)  
+  - `True` for integration tests (real dataset)  
 
 Run tests using:
 python Test_cases.py
@@ -197,16 +227,19 @@ ALL TESTS PASSED SUCCESSFULLY!
 
 To ensure that this project runs consistently across different machines, we use **Docker** and **Dev Containers**.
 
-*Docker: Run the analysis workflow consistently anywhere.
-*Dev Container: Develop, test, and visualize inside a containerized IDE environment.
+- **Docker**: Packages the project, including Python, dependencies, and environment settings, into a portable container. This ensures that the analysis workflow runs the same way on any machine, avoiding "works on my machine" issues.  
+- **Dev Container**: Provides a reproducible development environment inside VS Code (or another compatible IDE) with all libraries pre-installed. This allows you to **develop, test, and visualize** results in a containerized IDE environment.
+
+---
 
 ## Docker in This Project
 
-Docker allows you to package the project along with its **Python version, libraries, and dependencies** into a container. This ensures that the analysis scripts, machine learning models, and visualizations run the same way on any computer.
+Docker allows you to package the project along with its **Python version, libraries, and dependencies** into a container. This ensures that analysis scripts, machine learning models, and visualizations run the same way on any computer.
 
-**How it works in this project:**
+### How it works in this project:
 
-- A `Dockerfile` defines the environment:
+- The `Dockerfile` defines the environment:
+
 dockerfile
 FROM python:3.11-slim
 WORKDIR /app
@@ -214,6 +247,28 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 CMD ["python", "Source_code/DataAnalysis.py"]
+* The Docker image includes:
+Python 3.12
+All required libraries (pandas, numpy, matplotlib, scikit-learn, etc.)
+Project source code and scripts
+Benefits:
+* Reproducibility: Everyone runs the exact same environment.
+* Isolation: Avoids conflicts with other Python installations or libraries on your system.
+* Portability: The project can run on Windows, macOS, or Linux without changes.
+## Dev Container In This Project
+A Dev Container is a containerized development environment configured via VS Code or other IDEs. It ensures the IDE has access to the exact same environment as the Docker container.
+
+* Features in this project:
+1. Pre-installed dependencies: All Python packages from requirements.txt are automatically installed.
+2. Integrated IDE support: You can run, debug, and visualize code inside the container.
+3. Reproducible workspace: The container includes the working directory, making collaboration easier.
+4. Automatic Python version management: Ensures the correct version of Python is used across different systems.
+
+* Using the Dev Container:
+Open the project in VS Code.
+Install the Remote - Containers extension.
+Open the project in a container (Reopen in Container).
+All scripts, tests, and visualizations run inside the container, ensuring consistency.
 
 ## Usage
 
