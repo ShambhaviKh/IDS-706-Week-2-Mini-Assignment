@@ -205,7 +205,7 @@ plt.title("Ratings Across Different Price Ranges")
 plt.show()
 
 #Category Proportion (How many categories are there and whats their proportion?)
-category_counts = df['product_categoryc'].value_counts()
+category_counts = df['product_category'].value_counts()
 plt.figure(figsize=(8,8))
 plt.pie(category_counts, labels=category_counts.index, autopct='%1.1f%%', startangle=140, colors=sns.color_palette('pastel'))
 plt.title('Category Proportion')
