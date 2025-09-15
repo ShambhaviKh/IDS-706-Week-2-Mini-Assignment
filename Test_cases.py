@@ -9,6 +9,7 @@ import os
 # Adding week3 folder
 sys.path.append(os.path.join(os.path.dirname(__file__), 'week3'))
 
+# Importing functions from Analysis.py
 from week3.Analysis import (
     load_data,
     inspect_data,
