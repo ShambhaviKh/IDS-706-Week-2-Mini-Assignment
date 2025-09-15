@@ -172,7 +172,7 @@ run:
 	python Source_code/DataAnalysis.py
 
 test:
-	pytest Tests/Test_cases.py -s
+	pytest Test_cases.py -s
 
 docker:
 	docker build -t dataset_analysis .
@@ -187,9 +187,9 @@ The project includes unit and system tests to ensure reproducibility:
 4. Machine Learning – Ensures Linear Regression and Decision Tree predictions run and metrics are valid
 
 Run tests using:
-python Tests/Test_cases.py
+python Test_cases.py
 Or using pytest:
-pytest Tests/Test_cases.py -s
+pytest Test_cases.py -s
 All tests print "Test ... successful" messages and end with:
 ALL TESTS PASSED SUCCESSFULLY!
 
