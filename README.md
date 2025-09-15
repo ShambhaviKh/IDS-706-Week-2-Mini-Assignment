@@ -39,6 +39,10 @@ Though the project has used pandas but it also contains a file with comparison b
 * [Linear Regression](#linear-regression)
 * [Decision Tree Regressor](#decision-tree-regressor)
 * [Visualizations](#visualizations)
+* [Makefile](#Makefile)
+* [Test Cases](#Test-cases)
+* [Docker & Dev Container](#Docker-and-Dev-Container)
+* [Usage](#usage)
 
 ---
 
@@ -158,6 +162,22 @@ Residual plot
 
 *Category Proportion: Pie chart showing product category distribution.
 
+## Makefile
+.PHONY: install run test docker
+
+install:
+	pip install -r requirements.txt
+
+run:
+	python Source_code/DataAnalysis.py
+
+test:
+	pytest Tests/Test_cases.py -s
+
+docker:
+	docker build -t dataset_analysis .
+	docker run --rm dataset_analysis
+
 ## Test Cases
 
 The project includes unit and system tests to ensure reproducibility:
@@ -172,6 +192,28 @@ Or using pytest:
 pytest Tests/Test_cases.py -s
 All tests print "Test ... successful" messages and end with:
 ALL TESTS PASSED SUCCESSFULLY!
+
+## Docker & Dev Container
+
+To ensure that this project runs consistently across different machines, we use **Docker** and **Dev Containers**.
+
+*Docker: Run the analysis workflow consistently anywhere.
+*Dev Container: Develop, test, and visualize inside a containerized IDE environment.
+
+### Docker in This Project
+
+Docker allows you to package the project along with its **Python version, libraries, and dependencies** into a container. This ensures that the analysis scripts, machine learning models, and visualizations run the same way on any computer.
+
+**How it works in this project:**
+
+- A `Dockerfile` defines the environment:
+```dockerfile
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+CMD ["python", "Source_code/DataAnalysis.py"]
 
 ## Usage
 
