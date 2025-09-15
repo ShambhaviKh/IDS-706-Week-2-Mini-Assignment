@@ -31,6 +31,8 @@ Though the project has used pandas but it also contains a file with comparison b
 ## Table of Contents
 
 * [Dataset](#dataset)
+* [Environment-Docker & Dev Container](#docker--dev-container)
+* [Makefile](#Makefile)
 * [Libraries Used](#libraries-used)
 * [Data Cleaning](#data-cleaning)
 * [Data Exploration](#data-exploration)
@@ -39,9 +41,7 @@ Though the project has used pandas but it also contains a file with comparison b
 * [Linear Regression](#linear-regression)
 * [Decision Tree Regressor](#decision-tree-regressor)
 * [Visualizations](#visualizations)
-* [Makefile](#Makefile)
 * [Test Cases](#Test-cases)
-* [Docker & Dev Container](#docker--dev-container)
 * [Usage](#usage)
 
 ---
@@ -88,6 +88,71 @@ The dataset contains information about Amazon products, including:
 14. Can product ratings be predicted from price, reviews, and sponsorship status?  
 15. Can the number of reviews be predicted using ratings and price details?  
 ---
+
+## Docker & Dev Container
+
+To ensure that this project runs consistently across different machines, we use **Docker** and **Dev Containers**.
+
+- **Docker**: Packages the project, including Python, dependencies, and environment settings, into a portable container. This ensures that the analysis workflow runs the same way on any machine, avoiding "works on my machine" issues.  
+- **Dev Container**: Provides a reproducible development environment inside VS Code (or another compatible IDE) with all libraries pre-installed. This allows you to **develop, test, and visualize** results in a containerized IDE environment.
+
+---
+
+## Docker in This Project
+
+Docker allows you to package the project along with its **Python version, libraries, and dependencies** into a container. This ensures that analysis scripts, machine learning models, and visualizations run the same way on any computer.
+
+### How it works in this project:
+
+- The `Dockerfile` defines the environment:
+
+dockerfile
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+CMD ["python", "Source_code/DataAnalysis.py"]
+* The Docker image includes:
+Python 3.12
+All required libraries (pandas, numpy, matplotlib, scikit-learn, etc.)
+Project source code and scripts
+Benefits:
+* Reproducibility: Everyone runs the exact same environment.
+* Isolation: Avoids conflicts with other Python installations or libraries on your system.
+* Portability: The project can run on Windows, macOS, or Linux without changes.
+
+## Dev Container In This Project
+
+A Dev Container is a containerized development environment configured via VS Code or other IDEs. It ensures the IDE has access to the exact same environment as the Docker container.
+
+* Features in this project:
+1. Pre-installed dependencies: All Python packages from requirements.txt are automatically installed.
+2. Integrated IDE support: You can run, debug, and visualize code inside the container.
+3. Reproducible workspace: The container includes the working directory, making collaboration easier.
+4. Automatic Python version management: Ensures the correct version of Python is used across different systems.
+
+* Using the Dev Container:
+Open the project in VS Code.
+Install the Remote - Containers extension.
+Open the project in a container (Reopen in Container).
+All scripts, tests, and visualizations run inside the container, ensuring consistency.
+
+## Makefile
+.PHONY: install run test docker
+
+install:
+	pip install -r requirements.txt
+
+run:
+	python Source_code/DataAnalysis.py
+
+test:
+	pytest Test_cases.py -s
+
+docker:
+	docker build -t dataset_analysis .
+	docker run --rm dataset_analysis
 
 ## Libraries Used
 
@@ -162,22 +227,6 @@ Residual plot
 
 *Category Proportion: Pie chart showing product category distribution.
 
-## Makefile
-.PHONY: install run test docker
-
-install:
-	pip install -r requirements.txt
-
-run:
-	python Source_code/DataAnalysis.py
-
-test:
-	pytest Test_cases.py -s
-
-docker:
-	docker build -t dataset_analysis .
-	docker run --rm dataset_analysis
-
 ## Test Cases
 
 The project includes unit and system tests to ensure reproducibility:
@@ -222,53 +271,6 @@ Or using pytest:
 pytest Test_cases.py -s
 All tests print "Test ... successful" messages and end with:
 ALL TESTS PASSED SUCCESSFULLY!
-
-## Docker & Dev Container
-
-To ensure that this project runs consistently across different machines, we use **Docker** and **Dev Containers**.
-
-- **Docker**: Packages the project, including Python, dependencies, and environment settings, into a portable container. This ensures that the analysis workflow runs the same way on any machine, avoiding "works on my machine" issues.  
-- **Dev Container**: Provides a reproducible development environment inside VS Code (or another compatible IDE) with all libraries pre-installed. This allows you to **develop, test, and visualize** results in a containerized IDE environment.
-
----
-
-## Docker in This Project
-
-Docker allows you to package the project along with its **Python version, libraries, and dependencies** into a container. This ensures that analysis scripts, machine learning models, and visualizations run the same way on any computer.
-
-### How it works in this project:
-
-- The `Dockerfile` defines the environment:
-
-dockerfile
-FROM python:3.11-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-CMD ["python", "Source_code/DataAnalysis.py"]
-* The Docker image includes:
-Python 3.12
-All required libraries (pandas, numpy, matplotlib, scikit-learn, etc.)
-Project source code and scripts
-Benefits:
-* Reproducibility: Everyone runs the exact same environment.
-* Isolation: Avoids conflicts with other Python installations or libraries on your system.
-* Portability: The project can run on Windows, macOS, or Linux without changes.
-## Dev Container In This Project
-A Dev Container is a containerized development environment configured via VS Code or other IDEs. It ensures the IDE has access to the exact same environment as the Docker container.
-
-* Features in this project:
-1. Pre-installed dependencies: All Python packages from requirements.txt are automatically installed.
-2. Integrated IDE support: You can run, debug, and visualize code inside the container.
-3. Reproducible workspace: The container includes the working directory, making collaboration easier.
-4. Automatic Python version management: Ensures the correct version of Python is used across different systems.
-
-* Using the Dev Container:
-Open the project in VS Code.
-Install the Remote - Containers extension.
-Open the project in a container (Reopen in Container).
-All scripts, tests, and visualizations run inside the container, ensuring consistency.
 
 ## Usage
 
