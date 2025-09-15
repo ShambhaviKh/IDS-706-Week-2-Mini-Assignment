@@ -41,7 +41,7 @@ Though the project has used pandas but it also contains a file with comparison b
 * [Visualizations](#visualizations)
 * [Makefile](#Makefile)
 * [Test Cases](#Test-cases)
-* [Docker & Dev Container](#Docker-and-Dev-Container)
+* [Docker & Dev Container](#docker--dev-container)
 * [Usage](#usage)
 
 ---
@@ -200,14 +200,14 @@ To ensure that this project runs consistently across different machines, we use 
 *Docker: Run the analysis workflow consistently anywhere.
 *Dev Container: Develop, test, and visualize inside a containerized IDE environment.
 
-### Docker in This Project
+## Docker in This Project
 
 Docker allows you to package the project along with its **Python version, libraries, and dependencies** into a container. This ensures that the analysis scripts, machine learning models, and visualizations run the same way on any computer.
 
 **How it works in this project:**
 
 - A `Dockerfile` defines the environment:
-```dockerfile
+dockerfile
 FROM python:3.11-slim
 WORKDIR /app
 COPY requirements.txt .
@@ -222,8 +222,6 @@ CMD ["python", "Source_code/DataAnalysis.py"]
 3. Explore data using grouping and filtering.
 4. Train machine learning models.
 5. Visualize results with plots.
-
----
 
 This project provides a foundation for **data analysis**, **feature engineering**, and **predictive modeling** on e-commerce datasets.
 
