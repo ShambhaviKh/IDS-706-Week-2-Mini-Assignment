@@ -18,7 +18,7 @@ jobs:
         python-version: '3.11'
 
     - name: Install dependencies
-        run: 
+      run: |
           make install
 
     - name: Run tests
