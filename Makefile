@@ -4,6 +4,10 @@
 PYTHON := python3
 DOCKER_IMAGE := dataset_analysis
 
+install:
+	pip install --upgrade pip &&\
+		pip install -r requirements.txt
+
 # Default target
 .PHONY: all
 all: help
