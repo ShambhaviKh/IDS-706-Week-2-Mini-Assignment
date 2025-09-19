@@ -1,6 +1,8 @@
 # IDS-706-Week-2-Mini-Assignment
 This project contains a simple data analysis workflow
 
+[![Dataset Analysis](https://github.com/ShambhaviKh/IDS-706-Week-2-Mini-Assignment/actions/workflows/datasetanalysis.yml/badge.svg)](https://github.com/ShambhaviKh/IDS-706-Week-2-Mini-Assignment/actions/workflows/datasetanalysis.yml)
+
 # Amazon Products Sales Data Analysis & Machine Learning
 
 The dataset used provides detailed information on 42,000+ Amazon electronics products, including sales, ratings, pricing trends, and sub-category distribution. The dataset opens up a wide range of practical use cases for Data Science, Machine Learning, and Business Intelligence, such as:
