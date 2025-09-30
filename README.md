@@ -36,19 +36,22 @@ Though the project has used pandas but it also contains a file with comparison b
 
 The project code was refactored to improve **modularity, readability, maintainability, and reproducibility**. 
 
-| Aspect | Old Script | Refactored Script | Improvements / Benefits |
-|--------|------------|-----------------|------------------------|
-| **Structure** | Monolithic script with sections separated by comments | Modular functions: `load_data()`, `inspect_data()`, `clean_data()`, `feature_engineering()`, `filtering_grouping()`, `linear_regression_model()`, `decision_tree_model()`, `plot_distributions()`, `main()` | Easier to read, maintain, and reuse functions |
-| **Variable & Column Naming** | Used original dataset column names: `title`, `rating`, `reviews`, `purchased_last_month` | Renamed to: `product_name`, `product_ratings`, `total_reviews`, `last_month_picks` | Clear, descriptive names reduce confusion |
-| **Data Cleaning** | Inline cleaning and repeated logic | Centralized in `clean_data()`: numeric conversion, NaN handling, duplicate removal, boolean mapping, invalid value checks | Consistent preprocessing and fewer errors |
-| **Feature Engineering** | Some inline calculations | Added `discount_amount`, `reviews_per_rating`; correlation heatmap | New features enhance analysis; visualization added |
-| **Filtering & Grouping** | Filters and groupings scattered | Centralized in `filtering_grouping()` function | Clear logical separation; easier to maintain |
-| **Machine Learning** | ML code inline, plots scattered | Separate functions: `linear_regression_model()` and `decision_tree_model()` with residual and predicted vs actual plots | Better organization; reusable ML functions; clear evaluation |
-| **Visualizations** | Plots inline; not optional | `plot_distributions()` function with `show_plot` flag | Optional plotting improves flexibility; standardized visuals |
-| **Pipeline Execution** | User ran sections manually | `main()` function orchestrates workflow | Easy full-pipeline execution; reproducible |
-| **Code Style & Linting** | Long lines, inconsistent formatting | Lines wrapped; `black` formatting applied; `flake8` linting | Improved readability; Python style compliance |  
-| **Documentation** | Comments inline, sparse explanations | Docstrings for each function; README updated with workflow explanation, badges, and detailed steps | Clear documentation for users and collaborators |
-
+| **Aspect** | **Original Code** | **Refactored Code** | **Changes / Improvements** |
+|------------|-----------------|-------------------|----------------------------|
+| **File Path** | Hardcoded inside functions | Configurable via `DATA_PATH` constant | Makes code reusable and easier to configure |
+| **Price Bins** | Hardcoded in `plot_distributions` | Defined as `PRICE_BINS` and `PRICE_LABELS` constants | Centralized constants for readability and maintainability |
+| **Function Naming** | Mixed naming | Snake_case consistently | Improves Pythonic readability |
+| **Data Cleaning** | Numeric conversion logic repeated in place | Numeric conversion loop generalized, fillna applied uniformly | Reduces repetitive code and ensures consistency |
+| **Feature Engineering** | Correlation heatmap code repeated | Extracted into `plot_correlation_heatmap` helper function | Enhances modularity and readability |
+| **ML Prediction Plots** | Inline scatter and residual plots inside each ML function | Extracted plotting logic into `plot_predictions` helper function | Reduces code duplication and improves clarity |
+| **Filtering & Grouping** | Returns `None` implicitly | Same functionality, more readable | Functionality maintained; refactored code just improved readability |
+| **Visualization** | Histograms, price vs ratings, and category pie chart repeated with inline logic | Improved `plot_distributions` function with centralized constants and optional `show_plot` parameter | Better flexibility and readability |
+| **Docstrings & Comments** | Basic docstrings and inline comments | Improved docstrings and section grouping | Better code documentation and maintainability |
+| **Numeric Columns Handling** | Converted and cleaned in-line | Extracted numeric column list as a constant inside functions | Easier to update numeric columns in one place |
+| **General Refactoring** | Many repetitive blocks | Repetitive logic (plots, conversions) modularized into helper functions | Cleaner, DRY (Don’t Repeat Yourself) code structure |
+| **Output Messages** | Inline prints for top 5 / summaries | Same prints maintained but grouped for clarity | Improved readability during execution |
+| **ML Models** | Linear regression and decision tree with repeated plotting | Reused `plot_predictions` for both models | Reduces duplicate plotting code |
+| **Main Function** | Hardcoded file path in `load_data` | Uses `DATA_PATH` constant | Improves flexibility |
 ---
 
 ### Refactoring Benefits
