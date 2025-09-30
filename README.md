@@ -36,19 +36,17 @@ Though the project has used pandas but it also contains a file with comparison b
 
 The project code was refactored to improve **modularity, readability, maintainability, and reproducibility**. Here’s a detailed comparison:
 
-| Aspect | Old Code | Refactored Code (New) | Improvements / Benefits |
-|--------|----------|----------------------|------------------------|
-| **Structure** | All code was in a single script with sections separated by comments | Modular functions: `load_data()`, `inspect_data()`, `clean_data()`, `feature_engineering()`, `filtering_grouping()`, `linear_regression_model()`, `decision_tree_model()`, `plot_distributions()`, and `main()` | Easier to read, maintain, test, and reuse individual functions |
-| **Variable & Column Naming** | Original dataset columns used directly: `title`, `rating`, `reviews`, `purchased_last_month` | Renamed for clarity: `product_name`, `product_ratings`, `total_reviews`, `last_month_picks` | Clear, descriptive names reduce confusion and improve readability |
-| **Data Cleaning** | Inline cleaning logic; numeric conversion and NaN handling repeated in multiple places | Centralized in `clean_data()` function; numeric & categorical handling automated; removed duplicates; validated ranges | Cleaner, consistent preprocessing; reduces code repetition; easier to maintain |
-| **Feature Engineering** | Limited feature creation done inline | Added `discount_amount` and `reviews_per_rating` with proper calculations; added correlation heatmap | New features enhance analysis; visualization helps understand relationships between numeric variables |
-| **Filtering & Grouping** | Inline filters and groupings scattered in code | Centralized in `filtering_grouping()` function; high-rated products, average discount per category, bestseller counts, and top 10 sellers | Easier to modify and reuse; clear logical separation |
-| **Machine Learning** | Linear regression and decision tree code embedded inline; plots and evaluation scattered | Separate functions for `linear_regression_model()` and `decision_tree_model()` with residual plots, predicted vs actual comparisons | Better organization; reusable ML functions; clear input/output and evaluation metrics |
-| **Visualizations** | Plots inline with code; not optional | `plot_distributions()` function with `show_plot` flag for testing; standardized histograms, boxplots, pie charts | Optional plotting improves testing; consistent, readable visualizations |
-| **Pipeline Execution** | No single entry point; user had to run sections manually | `main()` function orchestrates full workflow sequentially | Easy to run full pipeline; reproducible execution |
-| **Testing** | Minimal testing | `Test_cases.py` includes unit tests on sample CSV and integration tests on real dataset; supports `show_plot=False` for tests | Validates functions and pipeline integrity; ensures reproducibility |
-| **Code Style & Linting** | Long lines; inconsistent formatting | Lines wrapped; black formatting applied; flake8 linting enforced | Complies with Python standards; improved readability |
-| **Reproducibility & Environment** | No explicit containerization | Dockerfile and Dev Container support; Makefile commands for install, run, test, docker | Environment consistency across systems; simplifies collaboration |
+| Aspect | Old Script | Refactored Script | Improvements / Benefits |
+|--------|------------|-----------------|------------------------|
+| **Structure** | Monolithic script with sections separated by comments | Modular functions: `load_data()`, `inspect_data()`, `clean_data()`, `feature_engineering()`, `filtering_grouping()`, `linear_regression_model()`, `decision_tree_model()`, `plot_distributions()`, `main()` | Easier to read, maintain, and reuse functions |
+| **Variable & Column Naming** | Used original dataset column names: `title`, `rating`, `reviews`, `purchased_last_month` | Renamed to: `product_name`, `product_ratings`, `total_reviews`, `last_month_picks` | Clear, descriptive names reduce confusion |
+| **Data Cleaning** | Inline cleaning and repeated logic | Centralized in `clean_data()`: numeric conversion, NaN handling, duplicate removal, boolean mapping, invalid value checks | Consistent preprocessing and fewer errors |
+| **Feature Engineering** | Some inline calculations | Added `discount_amount`, `reviews_per_rating`; correlation heatmap | New features enhance analysis; visualization added |
+| **Filtering & Grouping** | Filters and groupings scattered | Centralized in `filtering_grouping()` function | Clear logical separation; easier to maintain |
+| **Machine Learning** | ML code inline, plots scattered | Separate functions: `linear_regression_model()` and `decision_tree_model()` with residual and predicted vs actual plots | Better organization; reusable ML functions; clear evaluation |
+| **Visualizations** | Plots inline; not optional | `plot_distributions()` function with `show_plot` flag | Optional plotting improves flexibility; standardized visuals |
+| **Pipeline Execution** | User ran sections manually | `main()` function orchestrates workflow | Easy full-pipeline execution; reproducible |
+| **Code Style & Linting** | Long lines, inconsistent formatting | Lines wrapped; `black` formatting applied; `flake8` linting | Improved readability; Python style compliance |  
 | **Documentation** | Comments inline, sparse explanations | Docstrings for each function; README updated with workflow explanation, badges, and detailed steps | Clear documentation for users and collaborators |
 
 ---
