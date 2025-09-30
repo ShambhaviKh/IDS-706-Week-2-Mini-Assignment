@@ -39,6 +39,19 @@ test:
 		exit 1; \
 	fi
 
+
+#Format code with black 
+.PHONY: format
+format:
+	black DataAnalysis.py
+	black main_script/Analysis.py
+	black Test_cases.py
+
+#Linting code with flake8
+.PHONY: lint
+lint:
+	flake8 --ignore=E203,W503,E501 main_script/Analysis.py
+
 # Build Docker image
 .PHONY: docker-build
 docker-build:
