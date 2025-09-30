@@ -60,9 +60,6 @@ The project code was refactored to improve **modularity, readability, maintainab
 - **Readable & Professional:** Clear variable names, docstrings, and formatted code  
 - **Reproducible & Testable:** Docker, Dev Container, unit tests, CI/CD badges  
 - **Enhanced Analysis:** New features, visualizations, and ML evaluation improvements  
-
-This comparison highlights the evolution from a **linear, monolithic script** to a **modular, professional, and reproducible project workflow**.
-
 ---
 
 ## Table of Contents
@@ -80,6 +77,7 @@ This comparison highlights the evolution from a **linear, monolithic script** to
 * [Visualizations](#visualizations)
 * [Test Cases](#Test-cases)
 * [Usage](#usage)
+* [Images of Refactoring and CI badge](#Images-of-Refactoring-and-CI-badge)
 
 ---
 
@@ -316,6 +314,35 @@ ALL TESTS PASSED SUCCESSFULLY!
 3. Explore data using grouping and filtering.
 4. Train machine learning models.
 5. Visualize results with plots.
+
+## Images of Refactoring and CI badge
+
+CI Badge passing screenshot-
+![Passing Screenshot](images/passing.png)
+
+![Passing Screenshot](images/passing1.png)
+
+Attaching a few example screenshots comapring the two versions of code-
+### Old Code
+Main function-
+![Old Code](images/old.png)
+
+Datapath hardcoded and no price bins
+![Old Code](images/old1.png)
+
+Correlation heatmap code repeated
+![Old Code](images/old2.png)
+
+### Refactored Code
+Main function-
+![Refactored Code](images/new.png)
+
+Datapath dynamic and price bins
+![Refactored Code](images/new1.png)
+
+Extracted into plot_correlation_heatmap helper function
+![Old Code](images/new2.png)
+
 
 This project provides a foundation for **data analysis**, **feature engineering**, and **predictive modeling** on e-commerce datasets.
 
