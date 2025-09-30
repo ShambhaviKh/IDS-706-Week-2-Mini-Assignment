@@ -34,7 +34,7 @@ Though the project has used pandas but it also contains a file with comparison b
 
 ## Refactoring Comparison: Old vs New
 
-The project code was refactored to improve **modularity, readability, maintainability, and reproducibility**. Here’s a detailed comparison:
+The project code was refactored to improve **modularity, readability, maintainability, and reproducibility**. 
 
 | Aspect | Old Script | Refactored Script | Improvements / Benefits |
 |--------|------------|-----------------|------------------------|
@@ -51,7 +51,7 @@ The project code was refactored to improve **modularity, readability, maintainab
 
 ---
 
-### Summary of Refactoring Benefits
+### Refactoring Benefits
 
 - **Modular & Maintainable:** Functions separated logically for clarity  
 - **Readable & Professional:** Clear variable names, docstrings, and formatted code  
