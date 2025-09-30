@@ -3,7 +3,7 @@ This project contains a simple data analysis workflow
 
 [![Dataset Analysis](https://github.com/ShambhaviKh/IDS-706-Week-2-Mini-Assignment/actions/workflows/datasetanalysis.yml/badge.svg)](https://github.com/ShambhaviKh/IDS-706-Week-2-Mini-Assignment/actions/workflows/datasetanalysis.yml)
 
-![GitHub Repo stars](https://img.shields.io/github/stars/shambhavikhanna/Dataset_Analysis?style=social)
+![GitHub Repo stars](https://img.shields.io/github/stars/ShambhaviKh/Dataset_Analysis?style=social)
 
 ![Python](https://img.shields.io/badge/python-3.12.11-blue)
 
