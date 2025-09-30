@@ -61,6 +61,8 @@ The project code was refactored to improve **modularity, readability, maintainab
 - **Reproducible & Testable:** Docker, Dev Container, unit tests, CI/CD badges  
 - **Enhanced Analysis:** New features, visualizations, and ML evaluation improvements  
 ---
+You can find the snippets of code comaprison here- 
+* [Images of Refactoring and CI badge](#Images-of-Refactoring-and-CI-badge)
 
 ## Table of Contents
 
@@ -77,7 +79,6 @@ The project code was refactored to improve **modularity, readability, maintainab
 * [Visualizations](#visualizations)
 * [Test Cases](#Test-cases)
 * [Usage](#usage)
-* [Images of Refactoring and CI badge](#Images-of-Refactoring-and-CI-badge)
 
 ---
 
