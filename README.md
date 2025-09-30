@@ -5,8 +5,9 @@ This project contains a simple data analysis workflow
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/ShambhaviKh/Dataset_Analysis?style=social)
 
-![Python](https://img.shields.io/badge/python-3.12.11-blue)
+![GitHub Repo forks](https://img.shields.io/github/forks/ShambhaviKh/Dataset_Analysis?style=social)
 
+![Python](https://img.shields.io/badge/python-3.12.11-blue)
 
 # Amazon Products Sales Data Analysis & Machine Learning
 
