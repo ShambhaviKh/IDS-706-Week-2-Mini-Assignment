@@ -190,6 +190,14 @@ docker:
 	docker build -t dataset_analysis .
 	docker run --rm dataset_analysis
 
+format:
+	black DataAnalysis.py
+	black main_script/Analysis.py
+	black Test_cases.py
+
+lint:
+	flake8 --ignore=E203,W503,E501 main_script/Analysis.py
+
 ## Libraries Used
 
 ```python
