@@ -50,8 +50,7 @@ format:
 #Linting code with flake8
 .PHONY: lint
 lint:
-	flake8 --ignore=E203,W503,E501 main_script/Analysis.py
-
+	python -m flake8 --ignore=E203,W503,E501 main_script/Analysis.py
 # Build Docker image
 .PHONY: docker-build
 docker-build:
