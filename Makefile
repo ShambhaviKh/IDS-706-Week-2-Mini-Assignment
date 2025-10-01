@@ -6,7 +6,7 @@ DOCKER_IMAGE := dataset_analysis
 
 install:
 	pip install --upgrade pip &&\
-		pip install -r Requirements.txt
+		pip install -r requirements.txt
 
 # Default target
 .PHONY: all

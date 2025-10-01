@@ -7,8 +7,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import (
-    accuracy_score,
-    classification_report,
     mean_squared_error,
     r2_score,
 )
@@ -113,7 +111,7 @@ print(
     high_rated[["product_name", "product_ratings", "total_reviews"]].head(),
 )
 
-# Average discount per category
+    # Average discount per category
 avg_discount = (
     df.groupby("product_category")["discount_percentage"]
     .mean()
