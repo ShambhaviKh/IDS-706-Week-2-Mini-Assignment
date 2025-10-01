@@ -111,7 +111,7 @@ print(
     high_rated[["product_name", "product_ratings", "total_reviews"]].head(),
 )
 
-    # Average discount per category
+# Average discount per category
 avg_discount = (
     df.groupby("product_category")["discount_percentage"]
     .mean()

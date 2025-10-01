@@ -7,6 +7,8 @@ DOCKER_IMAGE := dataset_analysis
 install:
 	pip install --upgrade pip &&\
 		pip install -r Requirements.txt
+		pip install flake8
+		pip install black
 
 # Default target
 .PHONY: all
